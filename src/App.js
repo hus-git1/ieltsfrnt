@@ -3,8 +3,11 @@ import "./App.css";
 
 const sections = [
   "Introduction",
-  // "Introduction","Introduction",
-  // "Introduction","Introduction",
+  "Introduction","Introduction",
+  "Introduction","Introduction",
+  "Introduction","Introduction",
+  "Introduction","Introduction",
+  "Introduction",
   "Cue Card",
   "Follow-Up Questions"
 ];
@@ -61,7 +64,7 @@ function App() {
 
   const fetchQuestion = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/question", {
+      const response = await fetch("https://prism-backend-lyart.vercel.app/api/groq/questions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ section: sections[currentSection], history: history }), // Send history too
@@ -107,7 +110,7 @@ function App() {
 
   const generatereport = async (finalString) => {
     try {
-      const response = await fetch("http://localhost:5000/api/report", {
+      const response = await fetch("https://prism-backend-lyart.vercel.app/api/groq/report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ final: finalString}), // Send history too
